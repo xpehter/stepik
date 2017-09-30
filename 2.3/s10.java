@@ -1,5 +1,5 @@
-public class s3 {
-    public static char charExpression(int a) {
-        return ((char) (92 + a));
+public class s10 {
+    public static boolean isPalindrome(String text) {
+        return true;
     }
 }
