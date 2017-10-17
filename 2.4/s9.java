@@ -26,20 +26,45 @@ public class s9 {
         int shag = 0;
         int izm = 0;
 
-        //Сортировка расчёской
+        // Сортировка расчёской
+        // и ... не работает, пишет
+        // Failed test #1. Wrong answer
+        // БЛИН!
         double d = summl / 1.247;
         int di = (int) (d + 0.5);
         /*System.out.println(di);
         d = di / 1.247;
         di = (int) (d + 0.5);
         System.out.println(di);*/
-        for (int i = 0; i < summl; i++){
-            for (int k = 0; k < summl; k++){
-                if (summ[k] > summ[di + k]){
-                    int tmp = summ[k];
-                    summ[k = summ[di + k];
-                    summ[di + k] = tmp;
+        int check = 0;
+        int i = 0;
+        //for (int i = 0; i < summl; i++){
+        while (i == 0){
+            System.out.println("Step: " +  shag++ + " " + Arrays.toString(summ));
+            if (di != check & di > 1){
+                check = di;
+                for (int k = 0; (k + di) < summl; k++){
+                    if (summ[k] > summ[k + di]){
+                        int tmp = summ[k];
+                        summ[k] = summ[k + di];
+                        summ[k + di] = tmp;
+                        System.out.println("Change (ras): " +  izm++ + " " + Arrays.toString(summ));
+                    }
                 }
+                d = di / 1.247;
+                di = (int) (d + 0.5);
+                System.out.println("di = " +  di + " " + Arrays.toString(summ));
+            }
+            else {
+                for(int t = 0; t < (summl - 1); t++){
+                    if (summ[t] > summ[t + 1]){
+                        int tmp = summ[t];
+                        summ[t] = summ[t + 1];
+                        summ[t + 1] = summ[t];
+                        System.out.println("Change (puz): " +  izm++ + " " + Arrays.toString(summ));
+                    }
+                }
+                i = 1;
             }
         }
 
