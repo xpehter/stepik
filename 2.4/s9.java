@@ -3,8 +3,10 @@ import java.util.Arrays;
 
 public class s9 {
     public static int[] mergeArrays(int[] a1, int[] a2) {
-        System.out.println(Arrays.toString(a1));
-        System.out.println(Arrays.toString(a2));
+
+        //System.out.println(Arrays.toString(a1));
+        //System.out.println(Arrays.toString(a2));
+
         int a1l = a1.length;
         int a2l = a2.length;
         int[] summ = new int[a1l + a2l];
@@ -19,9 +21,12 @@ public class s9 {
         //for (int i = a1.length; i <= (summ.length - 1); i++){
         //    summ[i] = a2[i - a1.length];
         //}
+
         int summl = summ.length;
+
         System.out.println(summl);
-        System.out.println(Arrays.toString(summ));
+        //System.out.println(Arrays.toString(summ));
+
         // Попробовать реализовать последнюю из https://habrahabr.ru/post/204600/
         int shag = 0;
         int izm = 0;
@@ -40,7 +45,7 @@ public class s9 {
         int i = 0;
         //for (int i = 0; i < summl; i++){
         while (i == 0){
-            System.out.println("Step: " +  shag++ + " " + Arrays.toString(summ));
+            //System.out.println("Step: " +  shag++ + " " + Arrays.toString(summ));
             if (di != check & di > 1){
                 check = di;
                 for (int k = 0; (k + di) < summl; k++){
@@ -48,12 +53,13 @@ public class s9 {
                         int tmp = summ[k];
                         summ[k] = summ[k + di];
                         summ[k + di] = tmp;
-                        System.out.println("Change (ras): " +  izm++ + " " + Arrays.toString(summ));
+                        //System.out.println("Change (ras): " +  izm++ + " " + Arrays.toString(summ));
                     }
                 }
                 d = di / 1.247;
+                //System.out.println("d = " +  d + " " + Arrays.toString(summ));
                 di = (int) (d + 0.5);
-                System.out.println("di = " +  di + " " + Arrays.toString(summ));
+                //System.out.println("di = " +  di + " " + Arrays.toString(summ));
             }
             else {
                 for(int t = 0; t < (summl - 1); t++){
@@ -61,7 +67,7 @@ public class s9 {
                         int tmp = summ[t];
                         summ[t] = summ[t + 1];
                         summ[t + 1] = summ[t];
-                        System.out.println("Change (puz): " +  izm++ + " " + Arrays.toString(summ));
+                        //System.out.println("Change (puz): " +  izm++ + " " + Arrays.toString(summ));
                     }
                 }
                 i = 1;
