@@ -8,26 +8,52 @@ class stepic {
         //System.out.println(s9.mergeArrays(new int[] {}, new int[] {1, 5, 2, 0}));
         //System.out.println(s9.mergeArrays(new int[] {}, new int[] {}));
 
-        // Длинна тестового массива
-        int dtm = 50;
-        int[] tmsj = new int[dtm];
-        int[] tmsi = new int[dtm];
+
+        // Произвольная длинна тестового массива
+/*
+        int dtm = 1000;
+        int[] one = new int[1 + (int) (Math.random() * dtm)];
+        int[] two = new int[1 + (int) (Math.random() * dtm)];
+*/
+
+
+
+        // Постоянная длинна тестового массива
+        int dtm = 1000;
+        int[] one = new int[dtm];
+        int[] two = new int[dtm];
+
+
 
         // Заполняем массивы
-        for (int i = 0; dtm > i; i++) {
-            tmsj[i] = tmsi[i] = (int) (Math.random() * 10);
+        for (int i = 0; i < one.length; i++) {
+            one[i] = (int) (Math.random() * 10);
         }
+        Arrays.sort(one);
+        //System.out.println(Arrays.toString(one));
+        for (int i = 0; i < two.length; i++) {
+            two[i] = (int) (Math.random() * 10);
+        }
+        Arrays.sort(two);
+        //System.out.println(Arrays.toString(two));
         // Массивы заполнеы одинаково?
-        System.out.println("Odinakovo?: " + Arrays.equals(tmsj, tmsi));
+        //System.out.println("Odinakovo?: " + Arrays.equals(one, two));
 
-        Arrays.sort(tmsj);
-        System.out.println("Ne moya sortirovka");
-        System.out.println(Arrays.toString(tmsj));
+        //Без сортировки сливаем оба массива в один
+        int dlinna_one = one.length;
+        int dlinna_two = two.length;
+        int[] itogoviy_test_mas = new int[dlinna_one + dlinna_two];
+        System.arraycopy(one, 0, itogoviy_test_mas, 0, dlinna_one);
+        System.arraycopy(two, 0, itogoviy_test_mas, dlinna_one, dlinna_two);
 
-        System.out.println(Arrays.toString(s9.mergeArrays(tmsi, new int[]{})));
+
+        Arrays.sort(itogoviy_test_mas);
+        //System.out.println("Ne moya sortirovka");
+        //System.out.println(Arrays.toString(one));
+
+        //System.out.println(Arrays.toString(s9.mergeArrays(two, new int[]{})));
         System.out.println("Rabotaet moya sortirovka:");
-        System.out.println(Arrays.equals(tmsj, s9.mergeArrays(tmsi, new int[]{})));
+        System.out.println(Arrays.equals(itogoviy_test_mas, s9.mergeArrays(one, two)));
     }
 
 }
-
